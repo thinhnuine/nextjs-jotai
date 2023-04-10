@@ -1,9 +1,12 @@
 import { FloatButton } from 'antd'
 import { useAtom } from 'jotai'
 import { ReactElement } from 'react'
-import { lightModeAtom } from './store'
+import { atomWithStorage } from 'jotai/utils'
 
-export const AppLayout = ({ children }: { children: ReactElement }) => {
+export type LightMode = 'white' | 'blue'
+
+const AppLayout = ({ children }: { children: ReactElement }) => {
+  const lightModeAtom = atomWithStorage<LightMode>('lightMode', 'white')
   const [lightMode, setLightMode] = useAtom(lightModeAtom)
   const toggleLightMode = () => setLightMode((prev) => (prev === 'white' ? 'blue' : 'white'))
 
@@ -18,3 +21,4 @@ export const AppLayout = ({ children }: { children: ReactElement }) => {
     </div>
   )
 }
+export default AppLayout

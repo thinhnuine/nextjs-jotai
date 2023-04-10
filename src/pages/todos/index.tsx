@@ -1,4 +1,4 @@
-import { AppLayout } from '@/pages/app-layout'
+import AppLayout from '@/pages/app-layout'
 import TodoContainer from '@/container/todo-list'
 import { NextPageWithLayout } from '../_app'
 
